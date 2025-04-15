@@ -7,6 +7,15 @@ footer {
     box-sizing: border-box;
 }
 
+footer a {
+    text-decoration: none;
+}
+
+footer .box_footer {
+    width: 940px;
+    margin: 0 auto;
+}
+
 footer .footer_sns_list {
     display: block;
     clear: both;
@@ -42,7 +51,6 @@ em {
 footer .footer_sns_list a {
     display: flex;
     align-items: center;
-    text-decoration: none;
     gap: 5px;
 }
 
@@ -59,4 +67,15 @@ footer .footer_sns_list .sns_name {
 footer .footer_sns_list img {
     width: 40px;
     height: 40px;
+}
+
+footer .footer_data {
+    padding: 20px 0;
+    border-top: 1px solid #e6e6e6;
+    position: relative;
+}
+
+footer .footer_data .footer_banner_list {
+    display: flex;
+    justify-content: space-between;
 }
