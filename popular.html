@@ -4,31 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>인기 명소</title>
-  <link rel="stylesheet" href="popular.css" />
+  <link rel="stylesheet" href="./assets/css/popular.css" />
 </head>
 <body>
   <main class="place-section">
-    <div class="place-header">
-      대한민국 구석구석, 인기
-      <div class="category-dropdown">
-        <button class="category-toggle">여행지</button>
-        <span class="img">
-            <img src="./images/popular_toggle.png" alt="서울숲" />
-        </span>
-        <div class="dropdown-menu">
-          <div>여행지</div>
-          <div>맛집</div>
-          <div>숙소</div>
-        </div>
+    <div class="select_region" id="nationWideArea">
+      <h2>대한민국 구석구석,</h2>
+      <div class="layer_wrap">
+        <span>인기</span>
+        <button type="button" class="menu on" title="열림" onclick="toggleDropdown()">
+          여행지 <span class="mo"></span>
+        </button>
+        <ul style="display: block;">
+          <li>
+            <button type="button" id="hotPl" tabindex="-1">여행지 <span class="mo"></span></button>
+          </li>
+          <li>
+            <button type="button" id="hotRest">맛집 <span class="mo"></span></button>
+          </li>
+          <li>
+            <button type="button" id="hotStay">숙소 <span class="mo"></span></button>
+          </li>
+        </ul>
+        <span>알려드릴게요!</span>
       </div>
-      알려드릴게요!
     </div>
 
     <ul class="place-list">
       <li class="place-card">
         <a href="#">
           <span class="img">
-            <img src="./images/popular_p1.png" alt="서울숲" />
+            <img src="./assets/images/popular_p1.png" alt="서울숲" />
           </span>
           <div class="info">
             <strong>서울숲</strong>
@@ -45,7 +51,7 @@
       <li class="place-card">
         <a href="#">
           <span class="img">
-            <img src="./images/popular_p2.png" alt="부산 해운대" />
+            <img src="./assets/images/popular_p2.png" alt="부산 해운대" />
           </span>
           <div class="info">
             <strong>해운대</strong>
@@ -56,9 +62,10 @@
             </div>
           </div>
         </a>
-        <button type="button" class="good" >좋아요</button>
+        <button type="button" class="good">좋아요</button>
       </li>
     </ul>
   </main>
+  <script src="./popular.js"></script>
 </body>
 </html>
