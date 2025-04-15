@@ -1,5 +1,7 @@
 footer {
     display: block;
+    position: fixed;
+    bottom: 0;
     width: 100%;
     margin-top: 60px;
     background: #f7f7f7;
