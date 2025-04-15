@@ -1,5 +1,24 @@
 # DH_JS_Project1
 
+### 폴더 구조
+
+```markdown
+
+my-web-project/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       └── logo.png
+├── README.md
+└── .gitignore
+```
+
+
+
 ### 📍**Branch Naming Rule**
 
 - 개발 기능에 따라 브랜치 구분
