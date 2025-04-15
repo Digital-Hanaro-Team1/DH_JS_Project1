@@ -1,0 +1,27 @@
+footer {
+    display: block;
+    width: 100%;
+    margin-top: 60px;
+    padding-bottom: 10px;
+    background: #f7f7f7;
+    box-sizing: border-box;
+}
+
+footer .footer_sns_list {
+    display: block;
+    clear: both;
+    text-align: center;
+    justify-self: center;
+}
+
+.tit {
+    display: inline-block;
+    margin-top: 14px;
+    padding-left: 33px;
+    background: url(../images/footer/ico_footer_sns.png) no-repeat 0 50% / 25px 26px;
+    font-weight: 700;
+    color: #333;
+    font-size: 16px;
+    line-height: 26px;
+    justify-content: center;
+}
