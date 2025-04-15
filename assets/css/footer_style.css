@@ -103,3 +103,23 @@ footer .footer_data .btm_menu a {
 footer .footer_data .btm_menu a :last-of-type {
     margin-right: 0px;
 }
+
+footer .footer_data .ft_address {
+    clear: both;
+    padding-top: 6px;
+    list-style: none;
+    padding-inline-start: 0px;
+    margin: 0
+}
+
+footer .footer_data .ft_address li {
+    display: inline-block;
+    margin-right: 5px;
+    line-height: 1.8;
+    color: #666;
+    font-size: 13px;
+}
+
+footer .footer_data .ft_address li span {
+    padding-right: 10px;
+}
