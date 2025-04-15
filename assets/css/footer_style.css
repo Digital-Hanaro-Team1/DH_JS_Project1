@@ -79,3 +79,27 @@ footer .footer_data .footer_banner_list {
     display: flex;
     justify-content: space-between;
 }
+
+footer .footer_data .btm_menu {
+    width: 100%;
+    padding-top: 10px;
+    overflow: hidden;
+    display: flex;
+    list-style: none;
+}
+
+footer .footer_data .btm_menu a.personal_info {
+    color: #2c47dc;
+    font-weight: 700;
+}
+
+footer .footer_data .btm_menu a {
+    margin-right: 30px;
+    color: #666;
+    font-size: 13px;
+    letter-spacing: -0.25px;
+}
+
+footer .footer_data .btm_menu a :last-of-type {
+    margin-right: 0px;
+}
