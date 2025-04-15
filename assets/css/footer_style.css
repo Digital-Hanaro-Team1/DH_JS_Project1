@@ -25,3 +25,38 @@ footer .footer_sns_list {
     line-height: 26px;
     justify-content: center;
 }
+
+footer .footer_sns_list ul {
+    padding: 20px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+em {
+    font-style: normal;
+    font-weight: normal;
+}
+
+footer .footer_sns_list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 5px;
+}
+
+footer .footer_sns_list .sns_name {
+    display: inline-block;
+    margin-left: 3px;
+    color: #666;
+    font-size: 15px;
+    line-height: 16px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+footer .footer_sns_list img {
+    width: 40px;
+    height: 40px;
+}
