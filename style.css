@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #fff;
+}
+
+header.gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo svg {
+  height: 50px;
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: font-weight 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a:focus,
+.nav-menu li a:active {
+  font-weight:800;
+}
+
+.nav-menu li a.active {
+  font-weight: 800;
+  color: #000;
+  position: relative;
+}
+
+.nav-menu li a.active::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.gnb-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.gnb-icons img {
+  height: 31px;
+  width: 31px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.gnb-icons img:hover {
+  opacity: 1;
+}
+
+.btn_search {
+  display: inline-block;
+  width: 31px;
+  height: 31px;
+  background: url('./images/btn_header_search.png') no-repeat center center;
+  text-indent: -9999px;
+}
+
+.map {
+  display: inline-block;
+  width: 31px;
+  height: 31px;
+  background: url('./images/icon_header_map.png') no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px;
+}
+
+.profile-icon {
+  display: inline-block;
+  width: 31px;
+  height: 32px;
+  background: url('./images/icon_header_profile1.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 50%;
+  text-indent: -9999px;
+}
+
+.lang-icon {
+  display: inline-block;
+  width: 29px;
+  height: 30px;
+  background: url('./images/icon_header_lang.png') no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px;
+}
