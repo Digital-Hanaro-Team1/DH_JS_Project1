@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인기 명소</title>
+  <link rel="stylesheet" href="popular.css" />
+</head>
+<body>
+  <main class="place-section">
+    <div class="place-header">
+      대한민국 구석구석, 인기
+      <div class="category-dropdown">
+        <button class="category-toggle">여행지</button>
+        <span class="img">
+            <img src="./images/popular_toggle.png" alt="서울숲" />
+        </span>
+        <div class="dropdown-menu">
+          <div>여행지</div>
+          <div>맛집</div>
+          <div>숙소</div>
+        </div>
+      </div>
+      알려드릴게요!
+    </div>
+
+    <ul class="place-list">
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./images/popular_p1.png" alt="서울숲" />
+          </span>
+          <div class="info">
+            <strong>서울숲</strong>
+            <em>서울 성동구</em>
+            <div class="tags">
+              <span>#자연</span>
+              <span>#공원</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('서울숲', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./images/popular_p2.png" alt="부산 해운대" />
+          </span>
+          <div class="info">
+            <strong>해운대</strong>
+            <em>부산 해운대구</em>
+            <div class="tags">
+              <span>#해변</span>
+              <span>#부산</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" >좋아요</button>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
