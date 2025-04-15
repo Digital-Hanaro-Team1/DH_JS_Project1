@@ -2,7 +2,6 @@ footer {
     display: block;
     width: 100%;
     margin-top: 60px;
-    padding-bottom: 10px;
     background: #f7f7f7;
     box-sizing: border-box;
 }
@@ -122,4 +121,42 @@ footer .footer_data .ft_address li {
 
 footer .footer_data .ft_address li span {
     padding-right: 10px;
+}
+
+footer .footer_pcLogo {
+    width: 100%;
+    padding-bottom: 16px;
+    border-top: 1px solid #e6e6e6;
+    box-sizing: border-box;
+}
+
+footer .footer_pcLogo:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+footer .footer_pcLogo .btn_footLogo {
+    display: block;
+    float: left;
+    width: 89px;
+    padding-top: 23px;
+}
+
+footer .footer_pcLogo .btn_footLogo img {
+    width: 89px;
+    height: 14px;
+}
+
+footer .footer_pcLogo .logo_list {
+    float: right;
+    padding-top: 14px;
+    margin: 0;
+}
+
+footer .footer_pcLogo .logo_list li {
+    float: left;
+    margin-left: 20px;
+    list-style: none;
 }
