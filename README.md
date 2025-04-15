@@ -30,6 +30,20 @@ my-web-project/
 - [<prefix>] <#이슈번호> - <설명>
 - 예시: `[feat] #10 - 햄버거 아이콘 토글 기능 추가`
 
+### 📍Merge **Rule**
+
+- Fast-forward merge
+    - 분기된 이후 main에 변화가 없어 충돌이 없는 경우 
+
+- 3-way merge
+    - 분기된 이후 main에 변화가 있어 충돌이 생기는 경우
+
+- Rebase merge
+    - 분기된 이후 main에 변화가 있지만 충돌 사항이 없는 경우
+
+- Squash merge
+    - 분기된 브랜치가 오류 해결을 위한 브랜치거나 FIX 커밋이 많은 경우
+
 ### 📍Merge **Message Rule**
 
 - [feat/#이슈번호 →main] 작업 내용 요약
