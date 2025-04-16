@@ -1,0 +1,37 @@
+.event-swiper {
+    background: #f4f6f8;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: 40px;
+    padding: 37px 0 50px;
+}
+
+.event-swiper .inner {
+    height: 100%;
+    width: 940px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.event-swiper h3 {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.6px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.event-swiper .swiper-container {
+    position: static;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
