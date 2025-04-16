@@ -238,3 +238,28 @@ if (document.querySelector('.btn_more') && !document.querySelector('.btn_more a'
     </a>
   `;
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bgColors = [
+    "#c2f5b6",
+    "#e4b6f5",
+    "#ffcf99",
+    "#fff9cf",
+    "#fff5a8",
+    "#a6f0ff",
+    "#d4e4ff",
+    "#b6d6f5",
+    "#fff5a8",
+    "#c2e7ff",
+    "#c7c9ff",
+    
+  ];
+
+  const localNewsCards = document.querySelectorAll(".local_news .inr");
+
+  localNewsCards.forEach((card) => {
+    const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+    card.style.backgroundColor = randomColor;
+  });
+});

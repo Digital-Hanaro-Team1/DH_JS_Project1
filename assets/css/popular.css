@@ -1,3 +1,4 @@
+
 .place-section {
   padding: 50px 20px 27px 20px;
   width: 980px;
@@ -248,10 +249,16 @@ a {
   background-color: #f2f2f2;
 }
 
+.local_news, 
+.local_news * {
+  box-sizing: border-box;
+}
+
 .local_news {
   padding-top: 20px;
   width: 960px;
   margin: 0 auto 0;
+
 }
 
 .local_news h2 {
@@ -272,6 +279,7 @@ a {
   margin: 0 auto;
   list-style: none;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .swiper-wrapper{
@@ -286,12 +294,14 @@ a {
 }
 
 .local_news .swiper-slide {
+  box-sizing: border-box;
   width: 300px;
   height: 288px;
   margin-right: 20px;
 }
 
 .local_news .swiper-slide .inr {
+    box-sizing: border-box;
     width: 300px;
     height: 288px;
     border-radius: 5px;
