@@ -11,8 +11,142 @@
     line-height: 24px;
     letter-spacing: -0.8px;
     color: #000;
+    margin: 0;
 }
 
 .festival_calendar h2 strong {
     font-weight: 800;
+}
+
+.festival_calendar .calendar {
+    padding: 0 80px 0 45px;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 0;
+    position: relative;
+}
+
+.festival_calendar .calendar .prev {
+    position: absolute;
+    left: 20px;
+    top: 41px;
+    width: 18px;
+    height: 18px;
+    border: 0 none;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url('../images/festival-calendar/btn_calendar_prev.png')
+}
+
+.festival_calendar .calendar .next {
+    position: absolute;
+    right: 58px;
+    top: 41px;
+    width: 18px;
+    height: 18px;
+    border: 0 none;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url('../images/festival-calendar/btn_calendar_next.png')
+}
+
+.festival_calendar .calendar .view {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    border: 0 none;
+    text-indent: -9999px;
+    background: url('../images/festival-calendar/btn_calendar.png');
+}
+
+.festival_calendar .calendar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.festival_calendar .calendar ul li {
+    padding: 24px 0 0;
+    position: relative;
+    height: 100px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.festival_calendar .calendar ul .month {
+    position: absolute;
+    left: 0;
+    top: -11px;
+    border: 1px solid #d6d6d6;
+    background: #fff;
+    width: 60px;
+    height: 24px;
+    line-height: 22px;
+    border-radius: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 13px;
+}
+
+.festival_calendar .calendar ul li button {
+    height: 53px;
+    width: 28px;
+    color: #333;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.festival_calendar .calendar ul li button span {
+    letter-spacing: -0.5px;
+}
+
+.festival_calendar .calendar ul li.saturday button span {
+    color: #4094F2;
+}
+
+.festival_calendar .calendar ul li.holiday button span {
+    color: #FB4C4C;
+}
+
+.festival_calendar .calendar ul li .date {
+    height: 28px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.festival_calendar .calendar ul li button:hover .date {
+    background-color: #f3f3f3;
+    border-radius: 100%;
+}
+
+.festival_calendar .calendar ul li.on button .date {
+    background: #333;
+    border-radius: 100%;
+    color: #fff;
+}
+
+.festival_calendar .calendar ul li .text {
+    font-weight: 400;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    color: #666;
+}
+
+.festival_calendar .calendar ul li.on .text {
+    font-size: 15px;
 }
