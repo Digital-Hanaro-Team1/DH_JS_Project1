@@ -93,7 +93,7 @@ header.gnb {
   display: inline-block;
   width: 31px;
   height: 31px;
-  background: url('./images/btn_header_search.png') no-repeat center center;
+  background: url('./assets/images/header/btn_header_search.png') no-repeat center center;
   text-indent: -9999px;
 }
 
@@ -101,7 +101,7 @@ header.gnb {
   display: inline-block;
   width: 31px;
   height: 31px;
-  background: url('./images/icon_header_map.png') no-repeat center center;
+  background: url('./assets/images/header/icon_header_map.png') no-repeat center center;
   background-size: contain;
   text-indent: -9999px;
 }
@@ -110,7 +110,7 @@ header.gnb {
   display: inline-block;
   width: 31px;
   height: 32px;
-  background: url('./images/icon_header_profile1.png') no-repeat center center;
+  background: url('./assets/images/header/icon_header_profile1.png') no-repeat center center;
   background-size: cover;
   border-radius: 50%;
   text-indent: -9999px;
@@ -120,7 +120,7 @@ header.gnb {
   display: inline-block;
   width: 29px;
   height: 30px;
-  background: url('./images/icon_header_lang.png') no-repeat center center;
+  background: url('./assets/images/header/icon_header_lang.png') no-repeat center center;
   background-size: contain;
   text-indent: -9999px;
 }
