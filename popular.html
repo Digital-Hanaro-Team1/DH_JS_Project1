@@ -23,17 +23,19 @@
         </button>
         <ul style="display: none;">
           <li>
-            <button type="button" id="hotPl" tabindex="-1">여행지 <span class="mo"></span></button>
+            <button type="button" id="hotPl" tabindex="-1">여행지 </button>
           </li>
           <li>
-            <button type="button" id="hotRest">맛집 <span class="mo"></span></button>
+            <button type="button" id="hotRest">맛집 </button>
           </li>
           <li>
-            <button type="button" id="hotStay">숙소 <span class="mo"></span></button>
+            <button type="button" id="hotStay">숙소 </button>
           </li>
         </ul>
         <span>알려드릴게요!</span>
-      </div>
+        <button type="button" class="icon_help">도움말</button>
+    
+    </div>
     </div>
 
     <ul class="place-list">
@@ -173,6 +175,9 @@
         <button type="button" class="good" onclick="setLikeContent('인천대공원', this)">좋아요</button>
       </li>
     </ul>
+    <div class="btn_more">
+      <a href="javascript:goAreaListPage()">더  많은 <strong>여행지</strong> 보러가기</a>
+    </div>
   </main>
   <script src="./popular.js"></script>
 </body>
