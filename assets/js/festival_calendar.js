@@ -405,7 +405,7 @@ fetch('festival_calendar.html')
         ftTiles.forEach((item) => {
             item.className = 'swiper-slide';
         });
-        ftTiles[index].classList.add('active');
+        if (ftTiles.length > 0) ftTiles[index].classList.add('active');
     }
 
     function changeHiddenFtBtnNextPrev() {
@@ -421,7 +421,7 @@ fetch('festival_calendar.html')
         bullets.forEach((item) => {
             item.className = 'swiper-pagination-bullet';
         })
-        bullets[index].classList.add('swiper-pagination-bullet-active');
+        if (bullets.length > 0) bullets[index].classList.add('swiper-pagination-bullet-active');
     }
 
     function moveToIndex(index, duration = 0.5) {
