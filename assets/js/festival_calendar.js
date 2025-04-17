@@ -77,21 +77,39 @@ const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 let startDate = today;
 let selectedDate = today;
 // festival -----------------------------------------------------
-const ftSwiperWrapper = document.querySelector('.festival_calendar .list .swiper_container .swiper-wrapper');
+const ftSwiperContainer = document.querySelector('.festival_calendar .list .swiper_container');
+const ftSwiperWrapper = ftSwiperContainer.querySelector('.swiper-wrapper');
+const ftSwiperPagination = ftSwiperContainer.querySelector('.page_btn .inner .swiper-pagination');
+const btnFtPrev = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-prev');
+const btnFtNext = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-next');
 
+
+const slideWidth = 680;
+const windowWidth = window.innerWidth;
+const offsetX = (windowWidth / 2) - (slideWidth / 2);
+
+let filteredFtList = [];
+let curFtIdx = 0;
 
 // --------------------------------------------------------------
 
 init();
 
 function init() {
-    setTwoWeeks(today);
-    setFestivalTileList();
-    btnPrevTwoWeeks.addEventListener('click', changeToPrevTwoWeeks);
-    btnNextTwoWeeks.addEventListener('click', changeToNextTwoWeeks);
+    initCalendar();
+    initFtSlider();
+    ftSwiperWrapper.style = `transition-duration: 0ms; transform: translate3d(${offsetX}px, 0px, 0px)`;
+
+    changeHiddenFtBtnNextPrev();
 }
 
 // calendar function ----------------------------------------------------------------
+
+function initCalendar() {
+    setTwoWeeks(today);
+    btnPrevTwoWeeks.addEventListener('click', changeToPrevTwoWeeks);
+    btnNextTwoWeeks.addEventListener('click', changeToNextTwoWeeks);
+}
 
 function setTwoWeeks(date) {
     for (let i = 0; i < 14; i++) {
@@ -228,17 +246,30 @@ function isWithinThreeMonths(date1, date2) {
 
 // festival function ----------------------------------------------------------------
 
+function initFtSlider() {
+    setFestivalTileList();
+
+    btnFtPrev.addEventListener('click', onClickFtPrevBtn);
+    btnFtNext.addEventListener('click', onClickFtNextBtn);
+}
+
 function getFestivalsForSelectedDay() {
     return festivals.filter((el) => el.startDate <= selectedDate && el.endDate >= selectedDate);
 }
 
 function setFestivalTileList() {
     ftSwiperWrapper.replaceChildren();
+    ftSwiperPagination.replaceChildren();
 
-    getFestivalsForSelectedDay().forEach((ft) => {
+    filteredFtList = getFestivalsForSelectedDay();
+
+    filteredFtList.forEach((ft, index) => {
         const divSlide = createFestivalTile(ft);
         ftSwiperWrapper.appendChild(divSlide);
+        ftSwiperPagination.appendChild(createFtPaginationBullet(index));
     });
+
+    moveToIndex(0, 0);
 }
 
 function createFestivalTile(festival) {
@@ -330,4 +361,67 @@ function createFtInfoBtn() {
     <a href="#">길찾기</a>`;
 
     return divBtn;
+}
+
+function createFtPaginationBullet(index) {
+    const divBullet = document.createElement('div');
+    divBullet.classList.add('swiper-pagination-bullet');
+    if (curFtIdx === index) divBullet.classList.add('swiper-pagination-bullet-active');
+
+    divBullet.tabIndex = index;
+    divBullet.onclick = (_) => moveToIndex(index);
+
+    return divBullet;
+}
+
+function onClickFtPrevBtn() {
+    if (curFtIdx <= 0) return;
+
+    moveToIndex(curFtIdx - 1);
+}
+
+function onClickFtNextBtn() {
+    if (curFtIdx >= (filteredFtList.length - 1)) return;
+
+    moveToIndex(curFtIdx + 1);
+}
+
+function activeFtTile(index) {
+    const ftTiles = ftSwiperWrapper.querySelectorAll('.swiper-slide');
+    ftTiles.forEach((item) => {
+        item.className = 'swiper-slide';
+    });
+    ftTiles[index].classList.add('active');
+}
+
+function changeHiddenFtBtnNextPrev() {
+    if (curFtIdx <= 0) btnFtPrev.style.display = 'none';
+    else btnFtPrev.style.display = 'inline-block';
+    
+    if ((filteredFtList.length - 1) <= curFtIdx) btnFtNext.style.display = 'none';
+    else btnFtNext.style.display = 'inline-block';
+}
+
+function activeFtBullet(index) {
+    const bullets = ftSwiperPagination.querySelectorAll('.swiper-pagination-bullet');
+    bullets.forEach((item) => {
+        item.className = 'swiper-pagination-bullet';
+    })
+    bullets[index].classList.add('swiper-pagination-bullet-active');
+}
+
+function moveToIndex(index, duration = 0.5) {
+    curFtIdx = index;
+    
+    // 슬라이드
+    ftSwiperWrapper.style = `transform: translate3d(${offsetX - (index * 700)}px, 0px, 0px); transition-duration: ${duration}s;`;
+    
+    // 축제 타일 활성화
+    activeFtTile(index);
+
+    // 인디케이터 적용
+    activeFtBullet(index);
+
+    // 버튼 표시 여부 적용
+    changeHiddenFtBtnNextPrev();
 }
