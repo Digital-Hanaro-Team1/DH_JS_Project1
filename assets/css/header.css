@@ -44,7 +44,9 @@ header.gnb {
 .nav-menu li a:focus,
 .nav-menu li a:active {
     font-weight: 700;
+    color: #000;
     position: relative;
+    
 }
   
 .nav-menu li a:hover::after,
@@ -59,23 +61,18 @@ header.gnb {
     background-color: #000;
     border-radius: 50%;
 }
-  
-.nav-menu li a.active {
-    font-weight: 700;
-    color: #000;
-    position: relative;
-}
-  
-.nav-menu li a.active::after {
+
+.nav-menu ul li a.active::after {
     content: '';
     position: absolute;
     top: -6px;
     right: -10px;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background-color: #000;
     border-radius: 50%;
 }
+
   
 .gnb-icons {
     display: flex;
@@ -184,8 +181,8 @@ header.gnb:hover .depth2 {
   left: 0;
   width: 100%;
   background-color: #f5f7f9;
-  padding: 0px 0px 30px 515px;  
-  gap: 10px;
+  padding: 0px 0px 30px 50%;  
+  gap: 13px;
   z-index: 999;
 }
 
@@ -237,4 +234,18 @@ header.gnb:hover .has-submenu .depth2 {
 .depth2 ul li a:active {
   color: #222;
   text-decoration: underline;
+  }
+
+.nav-menu li a.active {
+    font-weight: 700;
+    color: #000;
+    position: relative;
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
 }
