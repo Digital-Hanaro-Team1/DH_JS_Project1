@@ -88,39 +88,3 @@ header.gnb {
 .gnb-icons img:hover {
   opacity: 1;
 }
-
-.btn_search {
-  display: inline-block;
-  width: 31px;
-  height: 31px;
-  background: url('./assets/images/header/btn_header_search.png') no-repeat center center;
-  text-indent: -9999px;
-}
-
-.map {
-  display: inline-block;
-  width: 31px;
-  height: 31px;
-  background: url('./assets/images/header/icon_header_map.png') no-repeat center center;
-  background-size: contain;
-  text-indent: -9999px;
-}
-
-.profile-icon {
-  display: inline-block;
-  width: 31px;
-  height: 32px;
-  background: url('./assets/images/header/icon_header_profile1.png') no-repeat center center;
-  background-size: cover;
-  border-radius: 50%;
-  text-indent: -9999px;
-}
-
-.lang-icon {
-  display: inline-block;
-  width: 29px;
-  height: 30px;
-  background: url('./assets/images/header/icon_header_lang.png') no-repeat center center;
-  background-size: contain;
-  text-indent: -9999px;
-}
