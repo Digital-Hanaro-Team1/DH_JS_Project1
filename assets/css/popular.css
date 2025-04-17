@@ -138,8 +138,8 @@
 
 .place-card {
   font-style: normal;
-  width: 220px;
-  height: 320px;
+  width: 200px;
+  height: 300px;
   object-fit: cover;
   background: #fff;
   border-radius: 5px;
@@ -147,6 +147,7 @@
   overflow: hidden;
   transition: transform 0.2s ease;
   position: relative;
+  margin: 0 0 30px;
 }
 
 .place-card:hover {
@@ -154,14 +155,14 @@
 }
 
 .place-card img {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
 .place-card .info {
   font-style: normal;
-  height: 100px;
+  height: 80px;
   padding: 13px 15px 0;
   text-align: center;
 }
@@ -169,7 +170,7 @@
 .place-card .info strong {
   font-style: normal;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.6px;
   line-height: 20px;
@@ -183,7 +184,7 @@
 .place-card .info em {
   display: block;
   margin: 5px 0 16px;
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   line-height: 17px;
   letter-spacing: -0.5px;
@@ -271,6 +272,10 @@ a {
 }
 .local_news .list {
   position: relative;
+  margin : 0;
+  padding : 0;
+  display: block;
+  unicode-bidi: isolate;
 }
 
 .local_news .swiper-container {
@@ -291,42 +296,54 @@ a {
   height: 100%;
   z-index: 1;
   box-sizing: content-box;
+  margin : 0;
+  padding : 0;
 }
 
 .local_news .swiper-slide {
   box-sizing: border-box;
-  width: 300px;
-  height: 288px;
-  margin-right: 20px;
+  width: 280px;
+  height: 268px;
+  margin-right: 25px;
 }
 
 .local_news .swiper-slide .inr {
-    box-sizing: border-box;
-    width: 300px;
-    height: 288px;
-    border-radius: 5px;
-    padding: 25px;
-    position: relative;
-    box-sizing: border-box;
     height: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    margin:0;
     transition: all .3s ease-in-out;
 }
 
+
+.local_news .swiper-slide .category {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
 .local_news .category span {
-    display: inline-block;
-    padding: 4px 10px;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #333;
-    margin-right: 5px;
+  justify-content: center;
+  height: 25px;
+  min-width: 45px;
+  padding: 0 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid #333;
+  background: #333;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+  margin:0 ;
 }
 .local_news .swiper-slide .category span.type {
   background: none;
   color: #333;
   border: 1px solid #333;
-  
+  margin-left: 5px;
 }
 
 .local_news .category span:first-child {
@@ -339,19 +356,25 @@ a {
   height: 80px;
   margin: 21px 0 27px;
   position: relative;
+  padding :0;
+  box-sizing: border-box;
 }
 
 .local_news .tit strong {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: -0.8px;
     line-height: 25px;
     color: #333;
     flex-grow: 1;
     margin-right: 10px;
+    height: 50px;
+    display: -webkit-box;
     word-break: keep-all;
     text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .local_news .tit a {
@@ -359,14 +382,15 @@ a {
     left: 0;
     top: 60px; 
     bottom: 0;
-    display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     text-decoration: none;
     padding-right: 12px;
     font-size: 14px;
     line-height: 17px;
     font-weight: 300;
+    margin: 0;
+    padding: 0;
 }
 
 .local_news .tit a::after {
@@ -377,24 +401,25 @@ a {
     color: #333;
     text-decoration: none;
     padding-right: 12px;
-    font-size: 14px;
+    font-size: 3px;
     line-height: 17px;
     font-weight: 300;
 }
 
 .local_news .explanation {
-  
-    padding: 15px;
+    height: 80px;
+    padding: 10px;
     background: #fff;
     border-radius: 3px;
     text-align: center;
-    font-size: 13px;
+    font-size: 11px;
     color: #666;
+    margin:0;
 }
 
 .local_news .swiper-slide .explanation p {
   margin: 11px 0 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
   text-align: center;
   letter-spacing: -0.5px;
@@ -412,7 +437,4 @@ a {
   background: url(../images/icon_local_news_quotes.png) 50% 0 no-repeat;
 }
 
-.local_news .swiper-slide {
-  width: 300px;
-  height: 288px;
-}
+
