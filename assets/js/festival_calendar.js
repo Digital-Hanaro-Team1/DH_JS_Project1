@@ -78,6 +78,7 @@ let startDate = today;
 let selectedDate = today;
 // festival -----------------------------------------------------
 const ftSwiperContainer = document.querySelector('.festival_calendar .list .swiper_container');
+const ftSwiperWhenEmpty = document.querySelector('.festival_calendar .list .no_list');
 const ftSwiperWrapper = ftSwiperContainer.querySelector('.swiper-wrapper');
 const ftSwiperPagination = ftSwiperContainer.querySelector('.page_btn .inner .swiper-pagination');
 const btnFtPrev = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-prev');
@@ -262,6 +263,14 @@ function setFestivalTileList() {
     ftSwiperPagination.replaceChildren();
 
     filteredFtList = getFestivalsForSelectedDay();
+
+    if (filteredFtList.length === 0) {
+        ftSwiperContainer.style.display = 'none';
+        ftSwiperWhenEmpty.style = '';
+    } else {
+        ftSwiperContainer.style = 'none';
+        ftSwiperWhenEmpty.style.display = 'none';
+    }
 
     filteredFtList.forEach((ft, index) => {
         const divSlide = createFestivalTile(ft);

@@ -165,6 +165,68 @@
     box-sizing: border-box;
 }
 
+.festival_calendar .no_list {
+    height: auto;
+    padding: 11px 0 0;
+    background: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.festival_calendar .no_list::before {
+    content: '';
+    display: block;
+    height: 191px;
+    width: 100%;
+    background: url('../images/festival-calendar/img_calendar_no_list.png') 50% 0 / 151px 191px no-repeat;
+}
+
+.festival_calendar .no_list>strong {
+    padding: 20px 0 0;
+    font-size: 20px;
+    letter-spacing: -0.8px;
+    line-height: 24px;
+    color: #fff;
+    display: block;
+}
+
+.festival_calendar .no_list p {
+    margin: 12px 0 40px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.festival_calendar .no_list a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 220px;
+    height: 45px;
+    line-height: normal;
+    border: 1px solid #fff;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.festival_calendar .no_list a strong {
+    font-weight: 700;
+}
+
+.festival_calendar .no_list a::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    margin-top: 1px;
+    height: 15px;
+    margin-left: 8px;
+    background: url('../images/festival-calendar/btn_calendar_nolist.png');
+}
+
 .festival_calendar .swiper_container {
     position: static;
     margin: 0 auto;
