@@ -63,374 +63,380 @@ const festivals = [
         startDate: new Date(2025, 3, 18),
         endDate: new Date(2025, 3, 29),
     },
-]
+];
 
-// calendar -----------------------------------------------------
-const dows = ['일', '월', '화', '수', '목', '금', '토'];
-const calendar = document.querySelector('.festival_calendar .calendar');
-const dayTiles = calendar.querySelectorAll('.festival_calendar .calendar #dayList .mainDayList');
-const btnPrevTwoWeeks = calendar.querySelector('.prev');
-const btnNextTwoWeeks = calendar.querySelector('.next');
-
-const now = new Date();
-const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-let startDate = today;
-let selectedDate = today;
-// festival -----------------------------------------------------
-const ftSwiperContainer = document.querySelector('.festival_calendar .list .swiper_container');
-const ftSwiperWhenEmpty = document.querySelector('.festival_calendar .list .no_list');
-const ftSwiperWrapper = ftSwiperContainer.querySelector('.swiper-wrapper');
-const ftSwiperPagination = ftSwiperContainer.querySelector('.page_btn .inner .swiper-pagination');
-const btnFtPrev = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-prev');
-const btnFtNext = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-next');
-
-
-const slideWidth = 680;
-const windowWidth = window.innerWidth;
-const offsetX = (windowWidth / 2) - (slideWidth / 2);
-
-let filteredFtList = [];
-let curFtIdx = 0;
-
-// --------------------------------------------------------------
-
-init();
-
-function init() {
-    initCalendar();
-    initFtSlider();
-    ftSwiperWrapper.style = `transition-duration: 0ms; transform: translate3d(${offsetX}px, 0px, 0px)`;
-
-    changeHiddenFtBtnNextPrev();
-}
-
-// calendar function ----------------------------------------------------------------
-
-function initCalendar() {
-    setTwoWeeks(today);
-    btnPrevTwoWeeks.addEventListener('click', changeToPrevTwoWeeks);
-    btnNextTwoWeeks.addEventListener('click', changeToNextTwoWeeks);
-}
-
-function setTwoWeeks(date) {
-    for (let i = 0; i < 14; i++) {
-        const nextDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + i);;
-        const tile = dayTiles[i];
-        initTile(tile);
-        
-        if (i === 0 || nextDay.getDate() === 1) setMonthTag(nextDay, tile);
-        setDayTile(nextDay, tile);
-    }
-}
-
-function changeToPrevTwoWeeks() {
-    const newStartDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 14);
-
-    if (!isWithinThreeMonths(newStartDate, today)) {
-        alertIsNotThreeMonths();
-        return;
-    }
+fetch('festival_calendar.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('festival-calendar-include').innerHTML = data;
     
-    startDate = newStartDate;
-    selectedDate = newStartDate;
-    
-    setTwoWeeks(startDate);
-    setFestivalTileList();
-}
+    // calendar -----------------------------------------------------
+    const dows = ['일', '월', '화', '수', '목', '금', '토'];
+    const calendar = document.querySelector('.festival_calendar .calendar');
+    const dayTiles = calendar.querySelectorAll('.festival_calendar .calendar #dayList .mainDayList');
+    const btnPrevTwoWeeks = calendar.querySelector('.prev');
+    const btnNextTwoWeeks = calendar.querySelector('.next');
 
-function changeToNextTwoWeeks() {
-    const newStartDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 14);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    let startDate = today;
+    let selectedDate = today;
+    // festival -----------------------------------------------------
+    const ftSwiperContainer = document.querySelector('.festival_calendar .list .swiper_container');
+    const ftSwiperWhenEmpty = document.querySelector('.festival_calendar .list .no_list');
+    const ftSwiperWrapper = ftSwiperContainer.querySelector('.swiper-wrapper');
+    const ftSwiperPagination = ftSwiperContainer.querySelector('.page_btn .inner .swiper-pagination');
+    const btnFtPrev = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-prev');
+    const btnFtNext = ftSwiperContainer.querySelector('.page_btn .inner .swiper-button-next');
 
-    if (!isWithinThreeMonths(newStartDate, today)) {
-        alertIsNotThreeMonths();
-        return;
+
+    const slideWidth = 680;
+    const windowWidth = window.innerWidth;
+    const offsetX = (windowWidth / 2) - (slideWidth / 2);
+
+    let filteredFtList = [];
+    let curFtIdx = 0;
+
+    // --------------------------------------------------------------
+
+    init();
+
+    function init() {
+        initCalendar();
+        initFtSlider();
+        ftSwiperWrapper.style = `transition-duration: 0ms; transform: translate3d(${offsetX}px, 0px, 0px)`;
+
+        changeHiddenFtBtnNextPrev();
     }
 
-    startDate = newStartDate;
-    selectedDate = newStartDate;
-    setTwoWeeks(startDate);
-    setFestivalTileList();
-}
+    // calendar function ----------------------------------------------------------------
 
-function alertIsNotThreeMonths() {
-    alert('당월 기준 이전/이후 3개월 이내의 정보만 확인하실 수 있습니다.');
-}
-
-function initTile(tile) {
-    tile.className = 'mainDayList';
-    tile.querySelector('.month')?.remove();
-    tile.querySelector('button').onclick = null;
-}
-
-function setMonthTag(date, tile) {
-    const div = document.createElement('div');
-    div.classList.add('month');
-    div.innerHTML = `${date.getFullYear()}.${date.getMonth() + 1}`;
-    
-    tile.insertBefore(div, tile.firstChild);
-}
-
-function setDayTile(date, tile) {
-    tile.classList.add(formatDateToYYYYMMDD(date));
-
-    const dow = date.getDay();
-    const button = tile.querySelector('button');
-    const [dateTile, dowTile] = button.querySelectorAll('button span');
-    dateTile.innerHTML = date.getDate();
-    
-    if (dow === 6) {
-        tile.classList.add('saturday');
-    }
-    if (dow === 0) {
-        tile.classList.add('holiday');
+    function initCalendar() {
+        setTwoWeeks(today);
+        btnPrevTwoWeeks.addEventListener('click', changeToPrevTwoWeeks);
+        btnNextTwoWeeks.addEventListener('click', changeToNextTwoWeeks);
     }
 
-    if (isSameDay(today, date)) {
-        dowTile.innerHTML = '오늘';
-    } else {
-        dowTile.innerHTML = dows[dow];
+    function setTwoWeeks(date) {
+        for (let i = 0; i < 14; i++) {
+            const nextDay = new Date(date.getFullYear(), date.getMonth(), date.getDate() + i);;
+            const tile = dayTiles[i];
+            initTile(tile);
+
+            if (i === 0 || nextDay.getDate() === 1) setMonthTag(nextDay, tile);
+            setDayTile(nextDay, tile);
+        }
     }
 
-    if (isSameDay(selectedDate, date)) {
-        tile.classList.add('on');
-    }
+    function changeToPrevTwoWeeks() {
+        const newStartDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 14);
 
-    button.onclick = (_) => onSelectDay(date);
-}
-
-function onSelectDay(date) {
-    dayTiles.forEach((el) => {
-        if (el.classList.contains('on')) {
-            el.classList.remove('on');
+        if (!isWithinThreeMonths(newStartDate, today)) {
+            alertIsNotThreeMonths();
+            return;
         }
 
-        if (el.classList.contains(formatDateToYYYYMMDD(date))) {
-            el.classList.add('on');
-        }
-    });
-    selectedDate = date;
-    setFestivalTileList();
-}
+        startDate = newStartDate;
+        selectedDate = newStartDate;
 
-function formatDateToYYYYMMDD(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}${month}${day}`;
-}
-
-function formatDateToDotYMD(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1);
-    const day = String(date.getDate());
-    return `${year}. ${month}. ${day}.`;
-}
-
-function isSameDay(a, b) {
-    return a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate();
-}
-
-function isWithinThreeMonths(date1, date2) {
-  const d1 = new Date(date1);
-  const d2 = new Date(date2);
-
-  const earlier = d1 < d2 ? d1 : d2;
-  const later = d1 >= d2 ? d1 : d2;
-
-  const limit = new Date(earlier);
-  limit.setMonth(limit.getMonth() + 3);
-
-  return later <= limit;
-}
-
-// festival function ----------------------------------------------------------------
-
-function initFtSlider() {
-    setFestivalTileList();
-
-    btnFtPrev.addEventListener('click', onClickFtPrevBtn);
-    btnFtNext.addEventListener('click', onClickFtNextBtn);
-}
-
-function getFestivalsForSelectedDay() {
-    return festivals.filter((el) => el.startDate <= selectedDate && el.endDate >= selectedDate);
-}
-
-function setFestivalTileList() {
-    ftSwiperWrapper.replaceChildren();
-    ftSwiperPagination.replaceChildren();
-
-    filteredFtList = getFestivalsForSelectedDay();
-
-    if (filteredFtList.length === 0) {
-        ftSwiperContainer.style.display = 'none';
-        ftSwiperWhenEmpty.style = '';
-    } else {
-        ftSwiperContainer.style = 'none';
-        ftSwiperWhenEmpty.style.display = 'none';
+        setTwoWeeks(startDate);
+        setFestivalTileList();
     }
 
-    filteredFtList.forEach((ft, index) => {
-        const divSlide = createFestivalTile(ft);
-        ftSwiperWrapper.appendChild(divSlide);
-        ftSwiperPagination.appendChild(createFtPaginationBullet(index));
-    });
+    function changeToNextTwoWeeks() {
+        const newStartDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 14);
 
-    moveToIndex(0, 0);
-}
+        if (!isWithinThreeMonths(newStartDate, today)) {
+            alertIsNotThreeMonths();
+            return;
+        }
 
-function createFestivalTile(festival) {
-    const divSlide = document.createElement('div');
-    divSlide.className = 'swiper-slide';
+        startDate = newStartDate;
+        selectedDate = newStartDate;
+        setTwoWeeks(startDate);
+        setFestivalTileList();
+    }
 
-    const divInner = document.createElement('div');
-    divInner.className = 'inner';
+    function alertIsNotThreeMonths() {
+        alert('당월 기준 이전/이후 3개월 이내의 정보만 확인하실 수 있습니다.');
+    }
 
-    const spanImg = createFtImg(festival);
-    const divInfo = createFtInfo(festival);
+    function initTile(tile) {
+        tile.className = 'mainDayList';
+        tile.querySelector('.month')?.remove();
+        tile.querySelector('button').onclick = null;
+    }
 
-    divInner.appendChild(spanImg);
-    divInner.appendChild(divInfo);
+    function setMonthTag(date, tile) {
+        const div = document.createElement('div');
+        div.classList.add('month');
+        div.innerHTML = `${date.getFullYear()}.${date.getMonth() + 1}`;
 
-    divSlide.appendChild(divInner);
+        tile.insertBefore(div, tile.firstChild);
+    }
 
-    return divSlide;
-}
+    function setDayTile(date, tile) {
+        tile.classList.add(formatDateToYYYYMMDD(date));
 
-function createFtImg(festival) {
-    const spanImg = document.createElement('span');
-    spanImg.className = 'img';
+        const dow = date.getDay();
+        const button = tile.querySelector('button');
+        const [dateTile, dowTile] = button.querySelectorAll('button span');
+        dateTile.innerHTML = date.getDate();
 
-    const img = document.createElement('img');
-    img.src = festival.image;
-    img.alt = festival.title;
+        if (dow === 6) {
+            tile.classList.add('saturday');
+        }
+        if (dow === 0) {
+            tile.classList.add('holiday');
+        }
 
-    spanImg.appendChild(img);
+        if (isSameDay(today, date)) {
+            dowTile.innerHTML = '오늘';
+        } else {
+            dowTile.innerHTML = dows[dow];
+        }
 
-    return spanImg;
-}
+        if (isSameDay(selectedDate, date)) {
+            tile.classList.add('on');
+        }
 
-function createFtInfo(festival) {
-    const divInfo = document.createElement('div');
-    divInfo.className = 'info';
+        button.onclick = (_) => onSelectDay(date);
+    }
 
-    const h3Title = document.createElement('h3');
-    h3Title.innerHTML = festival.title;
+    function onSelectDay(date) {
+        dayTiles.forEach((el) => {
+            if (el.classList.contains('on')) {
+                el.classList.remove('on');
+            }
 
-    const emAddr = document.createElement('em');
-    emAddr.innerHTML = festival.addr;
+            if (el.classList.contains(formatDateToYYYYMMDD(date))) {
+                el.classList.add('on');
+            }
+        });
+        selectedDate = date;
+        setFestivalTileList();
+    }
 
-    const divPeriodPlace = document.createElement('div');
-    divPeriodPlace.className = 'period_place';
-    const divPeriod = createFtInfoPeriod(festival);
-    const divPlace = createFtInfoPlace(festival);
-    divPeriodPlace.appendChild(divPeriod);
-    divPeriodPlace.appendChild(divPlace);
+    function formatDateToYYYYMMDD(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}${month}${day}`;
+    }
 
-    const divBtn = createFtInfoBtn();
+    function formatDateToDotYMD(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1);
+        const day = String(date.getDate());
+        return `${year}. ${month}. ${day}.`;
+    }
 
-    divInfo.appendChild(h3Title);
-    divInfo.appendChild(emAddr);
-    divInfo.appendChild(divPeriodPlace);
-    divInfo.appendChild(divBtn);
+    function isSameDay(a, b) {
+        return a.getFullYear() === b.getFullYear() &&
+        a.getMonth() === b.getMonth() &&
+        a.getDate() === b.getDate();
+    }
 
-    return divInfo;
-}
+    function isWithinThreeMonths(date1, date2) {
+      const d1 = new Date(date1);
+      const d2 = new Date(date2);
 
-function createFtInfoPeriod(festival) {
-    const divPeriod = document.createElement('div');
-    divPeriod.className = 'period';
+      const earlier = d1 < d2 ? d1 : d2;
+      const later = d1 >= d2 ? d1 : d2;
 
-    divPeriod.innerHTML = 
-    `<strong>기간</strong>
-    <span>${formatDateToDotYMD(festival.startDate)} ~ ${formatDateToDotYMD(festival.endDate)}</span>`
+      const limit = new Date(earlier);
+      limit.setMonth(limit.getMonth() + 3);
 
-    return divPeriod;
-}
+      return later <= limit;
+    }
 
-function createFtInfoPlace(festival) {
-    const divPlace = document.createElement('div');
-    divPlace.className = 'place';
+    // festival function ----------------------------------------------------------------
 
-    divPlace.innerHTML = 
-    `<strong>장소</strong>
-    <span>${festival.detailAddr}</span>`
+    function initFtSlider() {
+        setFestivalTileList();
 
-    return divPlace;
-}
+        btnFtPrev.addEventListener('click', onClickFtPrevBtn);
+        btnFtNext.addEventListener('click', onClickFtNextBtn);
+    }
 
-function createFtInfoBtn() {
-    const divBtn = document.createElement('div');
-    divBtn.className = 'btn';
+    function getFestivalsForSelectedDay() {
+        return festivals.filter((el) => el.startDate <= selectedDate && el.endDate >= selectedDate);
+    }
 
-    divBtn.innerHTML = 
-    `<a href="#">바로가기</a>
-    <a href="#">길찾기</a>`;
+    function setFestivalTileList() {
+        ftSwiperWrapper.replaceChildren();
+        ftSwiperPagination.replaceChildren();
 
-    return divBtn;
-}
+        filteredFtList = getFestivalsForSelectedDay();
 
-function createFtPaginationBullet(index) {
-    const divBullet = document.createElement('div');
-    divBullet.classList.add('swiper-pagination-bullet');
-    if (curFtIdx === index) divBullet.classList.add('swiper-pagination-bullet-active');
+        if (filteredFtList.length === 0) {
+            ftSwiperContainer.style.display = 'none';
+            ftSwiperWhenEmpty.style = '';
+        } else {
+            ftSwiperContainer.style = 'none';
+            ftSwiperWhenEmpty.style.display = 'none';
+        }
 
-    divBullet.tabIndex = index;
-    divBullet.onclick = (_) => moveToIndex(index);
+        filteredFtList.forEach((ft, index) => {
+            const divSlide = createFestivalTile(ft);
+            ftSwiperWrapper.appendChild(divSlide);
+            ftSwiperPagination.appendChild(createFtPaginationBullet(index));
+        });
 
-    return divBullet;
-}
+        moveToIndex(0, 0);
+    }
 
-function onClickFtPrevBtn() {
-    if (curFtIdx <= 0) return;
+    function createFestivalTile(festival) {
+        const divSlide = document.createElement('div');
+        divSlide.className = 'swiper-slide';
 
-    moveToIndex(curFtIdx - 1);
-}
+        const divInner = document.createElement('div');
+        divInner.className = 'inner';
 
-function onClickFtNextBtn() {
-    if (curFtIdx >= (filteredFtList.length - 1)) return;
+        const spanImg = createFtImg(festival);
+        const divInfo = createFtInfo(festival);
 
-    moveToIndex(curFtIdx + 1);
-}
+        divInner.appendChild(spanImg);
+        divInner.appendChild(divInfo);
 
-function activeFtTile(index) {
-    const ftTiles = ftSwiperWrapper.querySelectorAll('.swiper-slide');
-    ftTiles.forEach((item) => {
-        item.className = 'swiper-slide';
-    });
-    ftTiles[index].classList.add('active');
-}
+        divSlide.appendChild(divInner);
 
-function changeHiddenFtBtnNextPrev() {
-    if (curFtIdx <= 0) btnFtPrev.style.display = 'none';
-    else btnFtPrev.style.display = 'inline-block';
-    
-    if ((filteredFtList.length - 1) <= curFtIdx) btnFtNext.style.display = 'none';
-    else btnFtNext.style.display = 'inline-block';
-}
+        return divSlide;
+    }
 
-function activeFtBullet(index) {
-    const bullets = ftSwiperPagination.querySelectorAll('.swiper-pagination-bullet');
-    bullets.forEach((item) => {
-        item.className = 'swiper-pagination-bullet';
-    })
-    bullets[index].classList.add('swiper-pagination-bullet-active');
-}
+    function createFtImg(festival) {
+        const spanImg = document.createElement('span');
+        spanImg.className = 'img';
 
-function moveToIndex(index, duration = 0.5) {
-    curFtIdx = index;
-    
-    // 슬라이드
-    ftSwiperWrapper.style = `transform: translate3d(${offsetX - (index * 700)}px, 0px, 0px); transition-duration: ${duration}s;`;
-    
-    // 축제 타일 활성화
-    activeFtTile(index);
+        const img = document.createElement('img');
+        img.src = festival.image;
+        img.alt = festival.title;
 
-    // 인디케이터 적용
-    activeFtBullet(index);
+        spanImg.appendChild(img);
 
-    // 버튼 표시 여부 적용
-    changeHiddenFtBtnNextPrev();
-}
+        return spanImg;
+    }
+
+    function createFtInfo(festival) {
+        const divInfo = document.createElement('div');
+        divInfo.className = 'info';
+
+        const h3Title = document.createElement('h3');
+        h3Title.innerHTML = festival.title;
+
+        const emAddr = document.createElement('em');
+        emAddr.innerHTML = festival.addr;
+
+        const divPeriodPlace = document.createElement('div');
+        divPeriodPlace.className = 'period_place';
+        const divPeriod = createFtInfoPeriod(festival);
+        const divPlace = createFtInfoPlace(festival);
+        divPeriodPlace.appendChild(divPeriod);
+        divPeriodPlace.appendChild(divPlace);
+
+        const divBtn = createFtInfoBtn();
+
+        divInfo.appendChild(h3Title);
+        divInfo.appendChild(emAddr);
+        divInfo.appendChild(divPeriodPlace);
+        divInfo.appendChild(divBtn);
+
+        return divInfo;
+    }
+
+    function createFtInfoPeriod(festival) {
+        const divPeriod = document.createElement('div');
+        divPeriod.className = 'period';
+
+        divPeriod.innerHTML = 
+        `<strong>기간</strong>
+        <span>${formatDateToDotYMD(festival.startDate)} ~ ${formatDateToDotYMD(festival.endDate)}</span>`
+
+        return divPeriod;
+    }
+
+    function createFtInfoPlace(festival) {
+        const divPlace = document.createElement('div');
+        divPlace.className = 'place';
+
+        divPlace.innerHTML = 
+        `<strong>장소</strong>
+        <span>${festival.detailAddr}</span>`
+
+        return divPlace;
+    }
+
+    function createFtInfoBtn() {
+        const divBtn = document.createElement('div');
+        divBtn.className = 'btn';
+
+        divBtn.innerHTML = 
+        `<a href="#">바로가기</a>
+        <a href="#">길찾기</a>`;
+
+        return divBtn;
+    }
+
+    function createFtPaginationBullet(index) {
+        const divBullet = document.createElement('div');
+        divBullet.classList.add('swiper-pagination-bullet');
+        if (curFtIdx === index) divBullet.classList.add('swiper-pagination-bullet-active');
+
+        divBullet.tabIndex = index;
+        divBullet.onclick = (_) => moveToIndex(index);
+
+        return divBullet;
+    }
+
+    function onClickFtPrevBtn() {
+        if (curFtIdx <= 0) return;
+
+        moveToIndex(curFtIdx - 1);
+    }
+
+    function onClickFtNextBtn() {
+        if (curFtIdx >= (filteredFtList.length - 1)) return;
+
+        moveToIndex(curFtIdx + 1);
+    }
+
+    function activeFtTile(index) {
+        const ftTiles = ftSwiperWrapper.querySelectorAll('.swiper-slide');
+        ftTiles.forEach((item) => {
+            item.className = 'swiper-slide';
+        });
+        ftTiles[index].classList.add('active');
+    }
+
+    function changeHiddenFtBtnNextPrev() {
+        if (curFtIdx <= 0) btnFtPrev.style.display = 'none';
+        else btnFtPrev.style.display = 'inline-block';
+
+        if ((filteredFtList.length - 1) <= curFtIdx) btnFtNext.style.display = 'none';
+        else btnFtNext.style.display = 'inline-block';
+    }
+
+    function activeFtBullet(index) {
+        const bullets = ftSwiperPagination.querySelectorAll('.swiper-pagination-bullet');
+        bullets.forEach((item) => {
+            item.className = 'swiper-pagination-bullet';
+        })
+        bullets[index].classList.add('swiper-pagination-bullet-active');
+    }
+
+    function moveToIndex(index, duration = 0.5) {
+        curFtIdx = index;
+
+        // 슬라이드
+        ftSwiperWrapper.style = `transform: translate3d(${offsetX - (index * 700)}px, 0px, 0px); transition-duration: ${duration}s;`;
+
+        // 축제 타일 활성화
+        activeFtTile(index);
+
+        // 인디케이터 적용
+        activeFtBullet(index);
+
+        // 버튼 표시 여부 적용
+        changeHiddenFtBtnNextPrev();
+    }
+});
