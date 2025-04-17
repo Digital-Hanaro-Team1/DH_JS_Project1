@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+}
+  
+header.gnb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+  
+.logo svg {
+    height: 38px;
+    width: 210px;
+}
+  
+.nav-menu ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: 48px;
+    list-style: none;
+    margin: 0 20Px;
+    padding: 0;
+    font-size: 19px;
+}
+  
+.nav-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    transition: font-weight 0.2s ease, color 0.2s ease;
+}
+  
+.nav-menu li a:hover,
+.nav-menu li a:active,
+.nav-menu li a.active {
+    font-weight: 700;
+    color: #000;
+    position: relative;
+    
+}
+  
+.nav-menu li a:hover::after,
+.nav-menu li a:active::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.nav-menu ul li a.active::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+  
+.gnb-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+  
+.gnb-icons img {
+    height: 31px;
+    width: 31px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+  
+.gnb-icons img:hover {
+    opacity: 1;
+}
+  
+.btn_search {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    background: url('../images/btn_header_search.png') no-repeat center center;
+    text-indent: -9999px;
+}
+  
+.map {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    background: url('../images/icon_header_map.png') no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px;
+}
+  
+.profile-icon {
+    display: inline-block;
+    width: 31px;
+    height: 32px;
+    background: url('../images/icon_header_profile1.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    text-indent: -9999px;
+}
+  
+.lang-icon {
+    display: inline-block;
+    width: 29px;
+    height: 30px;
+    background: url('../images/icon_header_lang.png') no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px;
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f4f4f5;
+  padding: 20px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+header.gnb:hover .submenu {
+  display: block;
+}
+
+.submenu ul {
+  display: flex;
+  gap: 40px;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #444;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.submenu a:hover {
+  text-decoration: underline;
+}
+
+header.gnb:hover .depth2 {
+  display: flex;
+}
+
+.depth2 {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background-color: #f4f4f5;
+  padding: 0px 0px 30px 50%;  
+  gap: 13px;
+  z-index: 999;
+}
+
+.depth2 ul {
+  display: block;
+  padding: 19px 0 0;  
+  list-style: none;
+  margin: 0;
+}
+
+.depth2 ul li {
+  height: auto;
+  line-height: 20px;
+  padding: 0 0 8px 0;
+  margin: 0;
+}
+
+.depth2 ul li a {
+  font-size: 16px;
+  color: #666;
+  line-height: 19px;
+  display: inline-block;
+  letter-spacing: -0.8px;
+  min-width: 100px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.depth2 ul li a:hover {
+  text-decoration: underline;
+}
+
+header.gnb:hover .has-submenu .depth2 {
+  display: flex;
+}
+
+.has-submenu {
+  position: static;
+}
+
+.depth2 a:hover::after,
+.depth2 a:focus::after,
+.depth2 a:active::after {
+  content: none !important;
+}
+
+.depth2 ul li a:hover,
+.depth2 ul li a:focus,
+.depth2 ul li a:active {
+  color: #222;
+  text-decoration: underline;
+  }
+
+.nav-menu li a.active {
+    font-weight: 700;
+    color: #000;
+    position: relative;
+}
+
+.nav-menu li a.active::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+}

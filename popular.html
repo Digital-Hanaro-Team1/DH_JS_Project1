@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인기 명소</title>
+  <link rel="stylesheet" href="./assets/css/popular.css" />
+  <link rel="stylesheet" href="./assets/css/common.css" />
+  <style>
+    main.place-section {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+    <div id="header-include"></div>
+  
+  <main class="place-section">
+    <div class="select_region" id="nationWideArea">
+      <h2>대한민국 구석구석,</h2>
+      <div class="layer_wrap">
+        <span>인기</span>
+        <button type="button" class="menu on" title="열림">
+          여행지 <span class="mo"></span>
+        </button>
+        <ul style="display: none;">
+          <li>
+            <button type="button" id="hotPl" tabindex="-1">여행지 </button>
+          </li>
+          <li>
+            <button type="button" id="hotRest">맛집 </button>
+          </li>
+          <li>
+            <button type="button" id="hotStay">숙소 </button>
+          </li>
+        </ul>
+        <span>알려드릴게요!</span>
+        <button type="button" class="icon_help">도움말</button>
+    
+    </div>
+    </div>
+
+    <ul class="place-list">
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p1.png" alt="통영케이블카" />
+          </span>
+          <div class="info">
+            <strong>통영케이블카</strong>
+            <em>경남 통영시</em>
+            <div class="tags">
+              <span>#풍경</span>
+              <span>#레저</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('통영케이블카', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p2.png" alt="일산호수공원" />
+          </span>
+          <div class="info">
+            <strong>일산호수공원</strong>
+            <em>경기 고양시</em>
+            <div class="tags">
+              <span>#공원</span>
+              <span>#산책</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('일산호수공원', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p3.png" alt="해인사(합천)" />
+          </span>
+          <div class="info">
+            <strong>해인사(합천)</strong>
+            <em>경남 합천군</em>
+            <div class="tags">
+              <span>#사찰</span>
+              <span>#역사</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('해인사(합천)', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p4.png" alt="속초 외옹치 바다향기로" />
+          </span>
+          <div class="info">
+            <strong>속초 외옹치 바다향기로</strong>
+            <em>강원 속초시</em>
+            <div class="tags">
+              <span>#산책</span>
+              <span>#해변</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('속초 외옹치 바다향기로', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p5.png" alt="고성 통일전망타워" />
+          </span>
+          <div class="info">
+            <strong>고성 통일전망타워</strong>
+            <em>강원 고성군</em>
+            <div class="tags">
+              <span>#전망</span>
+              <span>#북녘</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('고성 통일전망타워', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p6.png" alt="여수예술랜드" />
+          </span>
+          <div class="info">
+            <strong>여수예술랜드</strong>
+            <em>전남 여수시</em>
+            <div class="tags">
+              <span>#포토존</span>
+              <span>#가족여행</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('여수예술랜드', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p7.png" alt="서울숲" />
+          </span>
+          <div class="info">
+            <strong>서울숲</strong>
+            <em>서울 성동구</em>
+            <div class="tags">
+              <span>#자연</span>
+              <span>#공원</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('서울숲', this)">좋아요</button>
+      </li>
+
+      <li class="place-card">
+        <a href="#">
+          <span class="img">
+            <img src="./assets/images/popular_p8.png" alt="인천대공원" />
+          </span>
+          <div class="info">
+            <strong>인천대공원</strong>
+            <em>인천 남동구</em>
+            <div class="tags">
+              <span>#자연</span>
+              <span>#산책</span>
+            </div>
+          </div>
+        </a>
+        <button type="button" class="good" onclick="setLikeContent('인천대공원', this)">좋아요</button>
+      </li>
+    </ul>
+    <div class="btn_more">
+      <a href="javascript:goAreaListPage()">더  많은 <strong>여행지</strong> 보러가기</a>
+    </div>
+
+    <div class="area_cockcock_banner">
+      <div class="inr">
+          <p>
+              <strong><em>전국</em>의</strong> 다양한 여행코스가 궁금하지 않으신가요?
+          </p>
+          <a href="javascript:;">AI콕콕 플래너 바로가기</a>
+      </div>
+    </div>
+
+    <div class="local_news">
+        <h2>우리 지역 이야기</h2>
+        <div class="list">
+          <div class="swiper-container swiper-container-initialized swiper-container-horizontal lock">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-active" style="margin-right: 20px;">
+                <div class="inr" style="background-color: #fff9cf;">
+                  <div class="category">
+                    <span>경남</span>
+                    <span class="type">명소</span>
+                  </div>
+                  <div class="tit">
+                    <strong>[진해]<br>보타닉뮤지엄</strong>
+                    <a href="javascript:goAreaFeed('[진해]<br>보타닉뮤지엄', '', 'https://tour.gyeongnam.go.kr/board/view.gyeong?boardId=BBS_0002000&amp;menuCd=DOM_000009401001000000&amp;startPage=1&amp;dataSid=42053452&amp;categoryCode1=06&amp;categoryCode2=&amp;categoryCode3=&amp;searchType=DATA_TITLE&amp;keyword=','0', '0', 'main' )" title="새창 열림">바로가기</a>
+                  </div>
+                  <div class="explanation">
+                    
+                    <p>숲과 바다가 한눈에👀<br>보이는 경남 1호 사립수목원</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper-slide-next" style="margin-right: 20px;">
+                <div class="inr" style="background-color: #c2f5b6;">
+                  <div class="category">
+                    <span>충북</span>
+                    <span class="type">명소</span>
+                  </div>
+                  <div class="tit">
+                    <strong>[증평]<br>좌구산 숲 명상의 집</strong>
+                    <a href="javascript:goAreaFeed('[증평]<br>좌구산 숲 명상의 집', '', 'https://blog.naver.com/wwwjpgokr/223632890766','0', '0', 'main' )" title="새창 열림">바로가기</a>
+                  </div>
+                  <div class="explanation">
+                    <p>자연과 함께하는<br>힐링의 공간</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide" style="margin-right: 20px;">
+                <div class="inr" style="background-color: #ffebc7;">
+                  <div class="category">
+                    <span>울산</span>
+                    <span class="type">참여 </span>
+                  </div>
+                  <div class="tit">
+                    <strong>[증평]<br>좌구산 숲 명상의 집</strong>
+                    <a href="javascript:goAreaFeed('유케이션 (U-Cation)', '', 'https://www.uto.or.kr/uto/tour/Ucation01.do','0', '0', 'main' )" title="새창 열림">바로가기</a>
+                  </div>
+                  <div class="explanation">
+                    <p>산업과 여가가 공존하는 도시<br>울산에서 일하며 여행하기🎶 </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+        </div>
+      </div>
+
+  </main>
+  <script src="./assets/js/popular.js"></script>
+  <script src="./assets/js/header.js"></script>
+  
+</body>
+</html>
