@@ -77,7 +77,7 @@ const places = {
       title: '88생선구이',
       location: '강원 속초시',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=80f32c4d-107a-4255-8440-c07af50d442a&mode=progress',
-      tags: ['#생선구이모둠정식', '#속초여행']
+      tags: ['#생선구이정식', '#속초여행']
     },
     {
       title: '스멜츠',
@@ -89,13 +89,13 @@ const places = {
       title: '조양방직',
       location: '인천 강화군',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=9f0c4d38-dcc6-4ed3-893c-4fb81c5e1f0f&mode=progress',
-      tags: ['#2024_여행가는달과함께하는_발도장여행지', '#SNS속_인생샷명소']
+      tags: [ '#SNS속_인생샷명소']
     },
     {
       title: '게으른악어',
       location: '충북 충주시',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=abedce75-45d2-4538-8943-d0e6afb35dd8&mode=progress',
-      tags: ['#충주카페', '#충청북도_여행지_추천']
+      tags: ['#충주카페', '#여행지_추천']
     },
     {
       title: '덩실분식',
@@ -124,10 +124,10 @@ const places = {
       tags: ['#휴식하기좋은곳', '#휴식공간']
     },
     {
-      title: '영조관[한국관광 품질인증/Korea Quality]',
+      title: '영조관[한국관광 품질인증]',
       location: '전북 전주시',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5ee86299-da26-4089-9eca-fea24f57f1f2&mode=progress',
-      tags: ['#품질인증업소_전라', '#품질인증업소_전체보기']
+      tags: ['#품질인증업소_전라']
     },
     {
       title: '목향재',
@@ -145,19 +145,19 @@ const places = {
       title: '무아레 도그라운드',
       location: '경기 가평군',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=2947b23a-8507-48cd-bfd4-fd30649a0e2d&mode=progress',
-      tags: ['#가평반려동물동반리조트', '#경기도애견펜션']
+      tags: ['#반려동물', '#경기도애견펜션']
     },
     {
-      title: '라담[한국관광 품질인증/Korea Quality]',
+      title: '라담[한국관광 품질인증]',
       location: '전북 전주시',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=fcbf4611-4007-411d-98f1-f377ddf582be&mode=progress',
-      tags: ['#품질인증업소_전라', '#품질인증업소_전체보기']
+      tags: ['#품질인증업소_전라']
     },
     {
       title: '신라스테이 동탄',
       location: '경기 화성시',
       img: 'https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=0a09a986-82d8-45d3-8067-1c305f08554d&mode=progress',
-      tags: ['#신라스테이동탄', '#신라스테이']
+      tags: ['#신라스테이동탄']
     }
   ]
 };

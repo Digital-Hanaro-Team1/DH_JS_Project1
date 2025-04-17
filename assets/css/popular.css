@@ -172,17 +172,18 @@
 }
 
 .place-card .info strong {
-  font-style: normal;
-  display: block;
+  display: -webkit-box;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.6px;
   line-height: 20px;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   color: #333;
   text-decoration: none;
+  word-break: break-word;
 }
 
 .place-card .info em {
