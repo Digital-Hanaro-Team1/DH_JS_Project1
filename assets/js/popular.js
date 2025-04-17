@@ -210,6 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = btn.cloneNode(true);
       text.querySelector('span')?.remove();
       menuBtn.textContent = text.textContent.trim();
+      const li = btn.closest('li');
+      const ul = li.parentElement;
+      ul.prepend(li);
       menuBtn.appendChild(document.createElement('span')).className = 'mo';
       dropdown.style.display = 'none';
       menuBtn.classList.remove('open');
