@@ -91,8 +91,8 @@ fetch('festival_calendar.html')
 
 
     const slideWidth = 680;
-    const windowWidth = window.innerWidth;
-    const offsetX = (windowWidth / 2) - (slideWidth / 2);
+    let curWindowWidth = window.innerWidth;
+    let offsetX = (curWindowWidth / 2) - (slideWidth / 2);
     let curOffsetX = offsetX;
 
     let filteredFtList = [];
@@ -289,6 +289,16 @@ fetch('festival_calendar.html')
             targetIdx = Math.max(0, Math.min(filteredFtList.length - 1, targetIdx));
 
             moveToIndex(targetIdx);
+        });
+
+        window.addEventListener('resize', () => {
+            let distance = (curWindowWidth - window.innerWidth) / 2;
+            
+            curOffsetX -= distance;
+            setSwiperOffsetX(curOffsetX, 0);
+            
+            curWindowWidth = window.innerWidth;
+            offsetX = (curWindowWidth / 2) - (slideWidth / 2);
         });
           
     }
