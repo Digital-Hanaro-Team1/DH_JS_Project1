@@ -88,11 +88,14 @@
 <details>
 <summary>🔗 관련 Issue / PR 보기</summary>
 
-- Issue: [#1 - 헤더 구현](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/1)
-- Issue: [#2 - 푸터 구현](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/2)
-- Issue: [#11 - 헤더 수정](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/11)
-- PR : [#4 - header->mmain](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/4#issue-2995501444)
-- PR : [#5 footer->main](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/5#issue-2996081066)
+| 유형 | 번호 | 제목 | 링크 |
+|------|------|------|------|
+| Issue | #1 | 헤더 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/1) |
+| Issue | #2 | 푸터 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/2) |
+| Issue | #11 | 헤더 수정 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/11) |
+| PR | #4 | header → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/4) |
+| PR | #5 | footer → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/5) |
+
   
 </details>
 
