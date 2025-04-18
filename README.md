@@ -43,6 +43,7 @@
 | Issue | #6 | 이벤트 슬라이더 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/6) |
 | Issue | #10 | 축제 캘린더 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/10) |
 | Issue | #14 | 슬라이더 드래그 기능 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/14) |
+| Issue | #16 | 축제 슬라이더 너비 변환 fix | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/16#issue-3004048898)
 | PR | #9 | event slider → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/9) |
 | PR | #13 | 축제 캘린더 → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/13) |
 | PR | #15 | 슬라이더 드래그 → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/15) |
