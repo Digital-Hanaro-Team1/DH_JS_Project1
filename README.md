@@ -17,7 +17,7 @@
 
 | 이름 | 역할 |
 |:----:|----------------------------------------------------------------|
-| <div align="center"><a href="https://github.com/ghi512"><img src="https://avatars.githubusercontent.com/jhpark0888" width="100"/><br/>박지환</a></div> |- 홈 페이지 구현 <br/> - 이벤트 슬라이드 구현<br/>- 캘린더 슬라이드 구현 <br/>- footer |
+| <div align="center"><a href="https://github.com/jhpark0888"><img src="https://avatars.githubusercontent.com/jhpark0888" width="100"/><br/>박지환</a></div> |- 홈 페이지 구현 <br/> - 이벤트 슬라이드 구현<br/>- 캘린더 슬라이드 구현 <br/>- footer |
 | <div align="center"><a href="https://github.com/jjinleee"><img src="https://avatars.githubusercontent.com/jjinleee" width="100"/><br/>이진</a></div> | - 지역 페이지 구현 <br/>- 드롭다운 목록별 명소 구현<br/>- 지역 뉴스 구현<br/>- header |
 <br>
 
