@@ -30,10 +30,26 @@
 
 ### 🏠홈페이지
 
-- 날짜별 전국 행사 및 축제 슬라이더  
-- 이벤트 슬라이더
+- 날짜별 전국 행사 및 축제 슬라이더 기능
+- 이벤트 슬라이더 기능
 <img src="https://github.com/user-attachments/assets/e2253fa4-278d-4038-a49b-2e9b3cff6806" width="100%"/>
 <img src="https://github.com/user-attachments/assets/aaac31ee-529e-460a-9e2b-fbf48b687afb" width="100%"/>
+
+<details>
+<summary>🔗 관련 Issue / PR 보기</summary>
+
+| 유형 | 번호 | 제목 | 링크 |
+|------|------|------|------|
+| Issue | #6 | 이벤트 슬라이더 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/6) |
+| Issue | #10 | 축제 캘린더 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/10) |
+| Issue | #14 | 슬라이더 드래그 기능 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/14) |
+| PR | #9 | event slider → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/9) |
+| PR | #13 | 축제 캘린더 → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/13) |
+| PR | #15 | 슬라이더 드래그 → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/15) |
+
+
+</details>
+
 
 <br>
 
@@ -47,6 +63,17 @@
 - ‘우리 지역 이야기’ 뉴스 구현
 
 <img src="https://github.com/user-attachments/assets/f1c2c847-bfbe-4ba3-940e-0d2d7d4c2837" width="100%"/>
+
+<details>
+<summary>🔗 관련 Issue / PR 보기</summary>
+
+| 유형 | 번호 | 제목 | 링크 |
+|------|------|------|------|
+| Issue | #3 | 명소 페이지 구현 | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/3) |
+| PR | #12 | 명소 페이지 → main | [바로가기](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/12) |
+
+
+</details>
 <br>
 
 ---
@@ -58,7 +85,16 @@
 |------|--------|
 | Header | <img src="https://github.com/user-attachments/assets/6eab05d9-b027-436e-b425-50d38a5380a6" width="100%"/> |
 | Footer | <img src="https://github.com/user-attachments/assets/31323cfc-d832-4322-b8aa-685b4fca6864" width="100%"/> |
+<details>
+<summary>🔗 관련 Issue / PR 보기</summary>
 
+- Issue: [#1 - 헤더 구현](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/1)
+- Issue: [#2 - 푸터 구현](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/2)
+- Issue: [#11 - 헤더 수정](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/issues/11)
+- PR : [#4 - header->mmain](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/4#issue-2995501444)
+- PR : [#5 footer->main](https://github.com/Digital-Hanaro-Team1/DH_JS_Project1/pull/5#issue-2996081066)
+  
+</details>
 
 ---
 
@@ -105,24 +141,19 @@ ___
 - <prefix>/<#이슈번호> - <설명>
 - 예시: `feat/#10 - 햄버거 메뉴 구현`
 
-### 📍**Commit Message Rule**
+### 📝 커밋 메시지
 
 - [prefix] <#이슈번호> - <설명>
 - 예시: `[feat] #10 - 햄버거 아이콘 토글 기능 추가`
 
-### 📍Merge **Rule**
+### 🔄 Merge 방식
 
-- Fast-forward merge
-    - 분기된 이후 main에 변화가 없어 충돌이 없는 경우 
-
-- 3-way merge
-    - 분기된 이후 main에 변화가 있어 충돌이 생기는 경우
-
-- Rebase merge
-    - 분기된 이후 main에 변화가 있지만 충돌 사항이 없는 경우
-
-- Squash merge
-    - 분기된 브랜치가 오류 해결을 위한 브랜치거나 FIX 커밋이 많은 경우
+| 타입 | 설명 |
+|------|------|
+| Fast-forward | 충돌 없음, 직진 병합 |
+| 3-way merge | 충돌 발생 |
+| Rebase merge | 충돌 없고 커밋 정리가 필요한 경우 |
+| Squash merge | Fix 커밋 정리 후 병합할 때 사용 |
 
 ### 📍Merge **Message Rule**
 
@@ -175,21 +206,21 @@ ___
     ```
     
 
-### 📍**Prefix 정리**
+### 🛠️ Prefix 목록
 
-| Prefix | Description |
-| --- | --- |
+| Prefix | 설명 |
+|--------|------|
 | feat | 새로운 기능 추가 |
 | fix | 버그 수정 |
 | docs | 문서 추가 및 수정 |
-| style | 코드 포맷팅 (기능 수정 X) |
+| style | 코드 포맷팅 |
 | refactor | 코드 리팩토링 |
-| test | 테스트 관련 코드 추가 및 수정 |
-| chore | 빌드, 패키지 등과 관련된 설정 (기능이나 코드과는 관련 X) |
-| add | 이미지 등의 정적 자원 추가 |
-| setting | 초기 설정 세팅 |
-| rename | 변수, 파일, 폴더 명 변경 |
-| comment | 필요한 주석 추가 및 변경 |
+| test | 테스트 코드 |
+| chore | 빌드 및 설정 파일 수정 |
+| add | 이미지 등 정적 자원 추가 |
+| setting | 초기 설정 작업 |
+| rename | 명칭 변경 |
+| comment | 주석 추가/수정 |
 
 ### 📍git work flow
 
