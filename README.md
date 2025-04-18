@@ -1,24 +1,104 @@
-# DH_JS_Project1
+# 대한민국 구석구석 클론코딩 
 
-### 폴더 구조
+> 
+> 디지털 하나로에서 진행한 국내 여행 정보 포털 [대한민국 구석구석](https://korean.visitkorea.or.kr/main/main.do) 클론 프로젝트입니다.  
+> HTML, CSS, JavaScript 기반으로 실제 사이트의 주요 UI/UX 구성 요소를 재현했습니다.
 
-```markdown
+<br>
 
-my-web-project/
-├── index.html
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   └── images/
-│       └── logo.png
-├── README.md
-└── .gitignore
-```
+## 📌 프로젝트 소개
+
+- 대한민국 대표 관광 정보 포털인 ‘대한민국 구석구석’ 웹사이트의 주요 기능과 화면 구성을 클론하였습니다.
+- **HTML, CSS, JS로 프론트엔드 중심 구현**에 초점을 맞췄으며, 화면 구성과 슬라이더, 드롭다운 등 **다양한 인터랙션 요소**를 반영하였습니다.
+
+---
+
+### 👥 팀원
+
+| 이름 | 역할 |
+|:----:|----------------------------------------------------------------|
+| <div align="center"><a href="https://github.com/ghi512"><img src="https://avatars.githubusercontent.com/jhpark0888" width="100"/><br/>박지환</a></div> |- 홈 페이지 구현 <br/> - 이벤트 슬라이드 구현<br/>- 캘린더 슬라이드 구현 <br/>- footer |
+| <div align="center"><a href="https://github.com/jjinleee"><img src="https://avatars.githubusercontent.com/jjinleee" width="100"/><br/>이진</a></div> | - 지역 페이지 구현 <br/>- 드롭다운 목록별 명소 구현<br/>- 지역 뉴스 구현<br/>- header |
+<br>
+
+---
+
+<br>
+
+
+## 🖥️ 주요 화면 구성
+
+### 🏠홈페이지
+
+- 날짜별 전국 행사 및 축제 슬라이더  
+- 이벤트 슬라이더
+<img src="https://github.com/user-attachments/assets/e2253fa4-278d-4038-a49b-2e9b3cff6806" width="100%"/>
+<img src="https://github.com/user-attachments/assets/aaac31ee-529e-460a-9e2b-fbf48b687afb" width="100%"/>
+
+<br>
+
+---
+
+<br>
+
+### 📍 지역 페이지
+
+- 지역별 여행지 / 맛집 / 장소 카드 구성  
+- ‘우리 지역 이야기’ 뉴스 구현
+
+<img src="https://github.com/user-attachments/assets/f1c2c847-bfbe-4ba3-940e-0d2d7d4c2837" width="100%"/>
+<br>
+
+---
+<br>
+
+
+### 📌 헤더 & 푸터
+| 항목 | 이미지 |
+|------|--------|
+| Header | <img src="https://github.com/user-attachments/assets/6eab05d9-b027-436e-b425-50d38a5380a6" width="100%"/> |
+| Footer | <img src="https://github.com/user-attachments/assets/31323cfc-d832-4322-b8aa-685b4fca6864" width="100%"/> |
+
+
+---
+
+<br>
+
+## 🛠 기술 스택
+
+| 분류 | 사용 기술 |
+|------|------------|
+| Language | HTML5, CSS3, JavaScript  |
+| Version Control | Git, GitHub |
+| 협업 도구 | GitHub Issues, Pull Requests, Branch 전략 |
+
+
+___
+
+<br>
+
+## 🚀 실행 방법
+
+1. 이 저장소를 클론합니다.
+    ```bash
+    git clone https://github.com/your-id/your-repo.git
+    ```
+
+2. 프로젝트 디렉토리로 이동합니다.
+    ```bash
+    cd your-repo
+    ```
+
+3. `home.html` 파일을 브라우저에서 실행합니다.
+
+---
 
 
 
+<br>
+<br>
+
+## ✅ Git 컨벤션
 ### 📍**Branch Naming Rule**
 
 - 개발 기능에 따라 브랜치 구분
@@ -27,7 +107,7 @@ my-web-project/
 
 ### 📍**Commit Message Rule**
 
-- [<prefix>] <#이슈번호> - <설명>
+- [prefix] <#이슈번호> - <설명>
 - 예시: `[feat] #10 - 햄버거 아이콘 토글 기능 추가`
 
 ### 📍Merge **Rule**
@@ -60,7 +140,7 @@ my-web-project/
 
 ### 📍**Issue Naming Rule**
 
-- [<prefix>] <설명>
+- [prefix] <설명>
     - 예시: `[feat] 햄버거 메뉴 구현`
 - issue template
     
@@ -75,7 +155,7 @@ my-web-project/
 
 ### 📍**Pull request Naming Rule**
 
-- [<prefix>] <#관련이슈번호> - <설명>
+- [prefix] <#관련이슈번호> - <설명>
     - 예시: `[feat] #10 - 햄버거 메뉴 구현`
 - pr template
     
@@ -114,7 +194,7 @@ my-web-project/
 ### 📍git work flow
 
 ```markdown
-**1. 작업 단위별 Issue 생성**
+1. 작업 단위별 Issue 생성
 새로운 작업 단위별 이슈 생성
 - Issue 규칙
 	- 담당자 지정 및 프로젝트 연결
@@ -122,7 +202,7 @@ my-web-project/
 	- Issue 템플릿에 따라 이슈 내용과 할 일 목록 작성
 	- Label을 사용해 작업 성격을 표시 (e.g., feature, bug, documentation 등)
 
-**2. Develop 브랜치 최신화**
+2. Develop 브랜치 최신화
 fork받은 로컬 레포에서 develop 브랜치 최신화
 - git pull (origin develop)
 
@@ -141,3 +221,26 @@ fork받은 로컬 레포에서 develop 브랜치 최신화
 6. Issue와 Pull Request 관리
 - Label 관리: 완료된 이슈와 PR에 done과 같은 Label을 추가하여 작업이 완료됨을 표시 (closed)
 ```
+
+
+---
+
+<br>
+
+### 폴더 구조
+
+```markdown
+
+my-web-project/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       └── logo.png
+├── README.md
+└── .html
+```
+
