@@ -93,9 +93,13 @@ fetch('festival_calendar.html')
     const slideWidth = 680;
     const windowWidth = window.innerWidth;
     const offsetX = (windowWidth / 2) - (slideWidth / 2);
+    let curOffsetX = offsetX;
 
     let filteredFtList = [];
     let curFtIdx = 0;
+
+    let startX = 0;
+    let isDragging = false;
 
     // --------------------------------------------------------------
 
@@ -257,6 +261,36 @@ fetch('festival_calendar.html')
 
         btnFtPrev.addEventListener('click', onClickFtPrevBtn);
         btnFtNext.addEventListener('click', onClickFtNextBtn);
+
+        ftSwiperWrapper.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX; // 시작 지점 기록
+        });
+        
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            distance = e.clientX - startX;
+            setSwiperOffsetX(curOffsetX + distance, 0);
+        });
+        
+        document.addEventListener("mouseup", (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const distance = e.clientX - startX;
+            const direction = distance < 0 ? 'left' : 'right';
+            const movedCount = Math.round(Math.abs(distance) / 700);
+
+            let targetIdx = direction === 'left'
+                ? curFtIdx + movedCount
+                : curFtIdx - movedCount;
+
+            // 슬라이더 범위 제한
+            targetIdx = Math.max(0, Math.min(filteredFtList.length - 1, targetIdx));
+
+            moveToIndex(targetIdx);
+        });
+          
     }
 
     function getFestivalsForSelectedDay() {
@@ -424,11 +458,16 @@ fetch('festival_calendar.html')
         if (bullets.length > 0) bullets[index].classList.add('swiper-pagination-bullet-active');
     }
 
+    function setSwiperOffsetX(x, duration) {
+        ftSwiperWrapper.style = `transform: translate3d(${x}px, 0px, 0px); transition-duration: ${duration}s;`;
+    }
+
     function moveToIndex(index, duration = 0.5) {
         curFtIdx = index;
 
         // 슬라이드
-        ftSwiperWrapper.style = `transform: translate3d(${offsetX - (index * 700)}px, 0px, 0px); transition-duration: ${duration}s;`;
+        curOffsetX = offsetX - (index * 700);
+        setSwiperOffsetX(curOffsetX, duration);
 
         // 축제 타일 활성화
         activeFtTile(index);

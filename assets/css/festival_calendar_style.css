@@ -262,6 +262,7 @@
 .festival_calendar .swiper_container .swiper-wrapper .swiper-slide .inner {
     display: flex;
     height: 100%;
+    user-select: none;
 }
 
 .festival_calendar .swiper_container .swiper-wrapper .swiper-slide .inner::after {
@@ -314,6 +315,11 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
 }
 
 .festival_calendar .inner .info {

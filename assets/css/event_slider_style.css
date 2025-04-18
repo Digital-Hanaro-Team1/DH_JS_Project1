@@ -61,6 +61,7 @@
     height: 100%;
     position: relative;
     cursor: pointer;
+    user-select: none;
 }
 
 .event-swiper .swiper-slide .img img {
@@ -156,6 +157,7 @@
     bottom: 50px;
     height: 2px;
     background: #c3c5c6;
+    overflow: hidden;
 }
 
 .swiper-scrollbar-drag {
